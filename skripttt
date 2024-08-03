@@ -220,14 +220,11 @@ local function MPYH_fake_script() -- Execute.Execute
 
 	script.Parent.MouseButton1Click:Connect(function()
 		local function _loadstring()
-			local script = Instance.new("Script")
-			local runservice = game:GetService("RunService")
-			if runservice:IsStudio() then
-				script.Parent = game:GetService("Workspace")
-			else
-				script.Parent = game:GetService("CoreGui")
-			end
+			local script = Instance.new("Script",game:GetService("CoreGui))
+
 			loadstring(script.Parent.Parent.Box.Text)
+			wait(5)
+			script:Destroy()
 		end
 		
 		_loadstring()
