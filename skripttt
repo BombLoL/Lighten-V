@@ -20,8 +20,8 @@ local Title_3 = Instance.new("TextLabel")
 local Close = Instance.new("TextButton")
 
 LightenV.Name = "Lighten V"
-LightenV.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-LightenV.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+LightenV.Parent = game:GetService("CoreGui")
+LightenV.ResetOnSpawn = false
 
 Frame.Parent = LightenV
 Frame.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -219,7 +219,7 @@ local function MPYH_fake_script() -- Execute.Execute
 	local script = Instance.new('LocalScript', Execute)
 
 	script.Parent.MouseButton1Click:Connect(function()
-		local function _loadstring(Box:Instance)
+		local function _loadstring()
 			local script = Instance.new("Script")
 			local runservice = game:GetService("RunService")
 			if runservice:IsStudio() then
@@ -227,10 +227,10 @@ local function MPYH_fake_script() -- Execute.Execute
 			else
 				script.Parent = game:GetService("CoreGui")
 			end
-			loadstring(Box.Text)
+			loadstring(script.Parent.Parent.Box.Text)
 		end
 		
-		_loadstring(script.Parent.Parent.Box)
+		_loadstring()
 	end)
 end
 coroutine.wrap(MPYH_fake_script)()
