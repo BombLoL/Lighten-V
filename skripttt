@@ -220,7 +220,7 @@ local function MPYH_fake_script() -- Execute.Execute
 
 	script.Parent.MouseButton1Click:Connect(function()
 		local function _loadstring()
-			local script = Instance.new("Script",game:GetService("CoreGui))
+			local script = Instance.new("LocalScript",game:GetService("CoreGui))
 
 			loadstring(script.Parent.Parent.Box.Text)
 			wait(5)
